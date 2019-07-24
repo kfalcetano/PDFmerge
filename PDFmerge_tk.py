@@ -81,6 +81,6 @@ def merger(output_path, input_paths):
         pdf_merger.write(fileobj)
 
 root = tk.Tk(className=" PDF Merge")
-root.iconbitmap('C:/Users/Kevin/Desktop/Python/pdfmerge/ayylmao2.ico')
+root.iconbitmap("icons\ayylmao2.ico")
 app = Application(master=root)
 app.mainloop()
