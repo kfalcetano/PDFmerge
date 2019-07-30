@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter.filedialog import askopenfilename
 from tkinter.filedialog import asksaveasfilename
 from tkinter.scrolledtext import ScrolledText
+from tkinter.font import Font
 from tkinter import messagebox
 from PyPDF2 import PdfFileMerger
 import os
@@ -15,9 +16,11 @@ class Application(tk.Frame):
         self.create_widgets()
 
     def create_widgets(self):
+        bfont = Font(family="Helvetica",size = 10)
         self.flist = ScrolledText(self, height=12, width = 80)
+        self.flist["font"] = bfont
         self.flist.pack(side="left",fill="both",expand=1)
-        self.flist.insert(tk.END,"PDF Paths Listed Here:\n")
+        self.flist.insert(tk.END,"PDF Paths Listed Here:\n\n")
         self.flist.config(state="disabled")
         
         self.right = tk.Frame(self)
@@ -26,18 +29,21 @@ class Application(tk.Frame):
         self.browse = tk.Button(master=self.right)
         self.browse["text"] = "Add a PDF"
         self.browse["command"] = self.get_file
+        self.browse["font"] = bfont
         self.browse.configure(bg = "light gray")
         self.browse.pack(pady=20,ipadx=5,ipady=5)
 
         self.merge = tk.Button(master=self.right)
         self.merge["text"]= "Merge"
         self.merge["command"] = self.merge_files
+        self.merge["font"] = bfont
         self.merge.configure(bg = "light gray")
         self.merge.pack(side="bottom",pady=35,ipadx=18,ipady=10)
 
         self.clear = tk.Button(master=self.right)
         self.clear["text"] = "Clear List"
         self.clear["command"] = self.clear_list
+        self.clear["font"] = bfont
         self.clear.configure(bg = "light gray")
         self.clear.pack(side="bottom",ipadx=5,ipady=5)
 
@@ -68,7 +74,7 @@ class Application(tk.Frame):
         self.flist.config(state="normal")
         del self.filenames[:]
         self.flist.delete(1.0,tk.END)
-        self.flist.insert(tk.END,"PDF Paths Listed Here:\n")
+        self.flist.insert(tk.END,"PDF Paths Listed Here:\n\n")
         self.flist.config(state="disabled")
 
 def merger(output_path, input_paths):
