@@ -1,3 +1,6 @@
+# PDFMerge GUI for Python 2.7
+# Kevin Falcetano August 2019
+
 from Tkinter import *
 import Tkinter, Tkconstants, tkFileDialog, tkMessageBox, tkFont, ScrolledText
 from PyPDF2 import PdfFileMerger
