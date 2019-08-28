@@ -1,4 +1,4 @@
-# PDFMerge GUI for Python 2.7
+# PDFMerge GUI Object for Python 2.7
 # Kevin Falcetano August 2019
 
 from Tkinter import *
@@ -6,7 +6,7 @@ import Tkinter, Tkconstants, tkFileDialog, tkMessageBox, tkFont, ScrolledText
 from PyPDF2 import PdfFileMerger
 import os
 
-class Application(Tkinter.Frame):
+class PDFwindow(Tkinter.Frame):
     def __init__(self, master=None):
         Frame.__init__(self,master)
         self.master = master
@@ -88,9 +88,3 @@ def merge_pdfs(output_path, input_paths):
         pdf_merger.append(path)
     with open(output_path, 'wb') as fileobj:
         pdf_merger.write(fileobj)
-
-if __name__ == "__main__":
-    root = Tkinter.Tk(className=" PDF Merge")
-    root.iconbitmap("icons/ayylmao2.ico")
-    app = Application(master=root)
-    app.mainloop()    
