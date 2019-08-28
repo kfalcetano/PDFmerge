@@ -88,4 +88,3 @@ def merger(output_path, input_paths):
  
     with open(output_path, 'wb') as fileobj:
         pdf_merger.write(fileobj)
-
