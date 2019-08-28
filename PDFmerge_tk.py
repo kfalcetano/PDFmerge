@@ -1,3 +1,6 @@
+# PDFMerge GUI for Python 3.7
+# Kevin Falcetano August 2019
+
 import tkinter as tk
 from tkinter.filedialog import askopenfilename
 from tkinter.filedialog import asksaveasfilename
