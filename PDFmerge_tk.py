@@ -34,7 +34,7 @@ class Application(Tkinter.Frame):
 
         self.merge = Tkinter.Button(master=self.right)
         self.merge["text"]= "Merge"
-        self.merge["command"] = self.merge_files
+        self.merge["command"] = self.merge_from_list
         self.merge["font"] = self.default_font
         self.merge.configure(bg = "light gray")
         self.merge.pack(side="bottom",pady=35,ipadx=18,ipady=10)
@@ -49,15 +49,15 @@ class Application(Tkinter.Frame):
     def ask_filename(self):
         filename = tkFileDialog.askopenfilename(title = "Select PDFs",filetypes=(("PDF files","*.pdf"),("All Files","*.*")))
         if filename != "":
-            self.update_filenames(filename)
+            self.update_file_list(filename)
 
-    def merge_files(self):
+    def merge_from_list(self):
         if len(self.filenames)==0:
             tkMessageBox.showerror(title="Error",message="Plese select at least one file.")
         else:
-            self.ask_saveas_file()
+            self.save_file()
 
-    def ask_saveas_file(self):
+    def save_file(self):
         filename = tkFileDialog.asksaveasfilename(filetypes=(("PDF files","*.pdf"),("All Files","*.*")),defaultextension=".pdf")
         if filename != "":
             merge_pdfs(filename,self.filenames)
@@ -69,7 +69,7 @@ class Application(Tkinter.Frame):
             self.flist.insert(1.0,"Merge saved to: "+filename+"\n")
             self.flist.config(state="disabled")       
             
-    def update_filenames(self, filename):
+    def update_file_list(self, filename):
         self.flist.config(state="normal")
         self.flist.insert(Tkinter.END,str(self.filenames.__len__()+1)+". "+filename+"\n")
         self.filenames.append(filename)
