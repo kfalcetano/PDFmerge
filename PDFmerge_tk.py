@@ -60,7 +60,7 @@ class Application(Tkinter.Frame):
     def ask_saveas_file(self):
         filename = tkFileDialog.asksaveasfilename(filetypes=(("PDF files","*.pdf"),("All Files","*.*")),defaultextension=".pdf")
         if filename != "":
-            merger(filename,self.filenames)
+            merge_pdfs(filename,self.filenames)
             self.show_file_saved(filename)
     
     def show_file_saved(self, filename):
@@ -82,7 +82,7 @@ class Application(Tkinter.Frame):
         self.flist.insert(Tkinter.END,"PDF Paths Listed Here:\n\n")
         self.flist.config(state="disabled")
 
-def merger(output_path, input_paths):
+def merge_pdfs(output_path, input_paths):
     pdf_merger = PdfFileMerger()
     for path in input_paths:
         pdf_merger.append(path)
