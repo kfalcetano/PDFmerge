@@ -1,4 +1,4 @@
-# PDFMerge GUI for Python 3.7
+# PDFMerge GUI for Python 3.9
 # Kevin Falcetano August 2019
 
 import tkinter as tk

@@ -1,4 +1,6 @@
 # PDFmerge
+Note: Requires PyPDF2, do "pip install pypdf2" to install.
+
 Use the GUI to browse for and PDFs to a list, and merge them or clear the list if you don't like it. Uses tkinter and PyPDF2 for simplicity and cross-platform capability (not that it was necessarily needed). The alien icon was just a placeholder, but here it stays.
 
 ## It looks like this:
